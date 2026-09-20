@@ -9,24 +9,23 @@ public class BaseHealthBar : MonoBehaviour
     private Image fillImage;
     [SerializeField] private Gradient gradient;
     
-    private float maxHealth;
-    private float currentHealth;
     private void Awake()
     {
         slider = GetComponentInChildren<Slider>();
         fillImage = GetComponentInChildren<Image>();
-        maxHealth = health.MaxHealth;
-        currentHealth = health.MaxHealth;
-        slider.maxValue = maxHealth;
-        slider.value = currentHealth;
-
+        slider.maxValue = health.MaxHealth;
+        slider.value = health.MaxHealth;
         health.HealthChangedEvent += OnHealthChanged;
+    }
+
+    private void Start()
+    {
         UpdateSlider();
     }
 
     private void UpdateSlider()
     {
-        slider.value = currentHealth;
+        slider.value = health.CurrentHealth;
         if(gradient!= null)
         {
             fillImage.color = gradient.Evaluate(slider.normalizedValue);
