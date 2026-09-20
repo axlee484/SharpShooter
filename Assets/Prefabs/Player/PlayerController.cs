@@ -4,24 +4,24 @@ using UnityEngine;
 public class PllayerController : MonoBehaviour
 {
     private StarterAssetsInputs input;
+    private BaseGun playerGun;
     private void Awake()
     {
         input = GetComponent<StarterAssetsInputs>();
+        playerGun = GetComponentInChildren<BaseGun>();
     }
 
-    private void ShootBullet()
+    private void Shoot()
     {
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hit, Mathf.Infinity))
-        {
-            print(hit.collider.gameObject.name);
-        }
-        input.ShootInput(false);
+        if(playerGun == null) return;
+        playerGun.TryFire();
     }
     private void Update()
     {
         if (input.Shoot)
         {
-            ShootBullet();
+            Shoot();
+            input.ShootInput(false);
         }
     }
 }
