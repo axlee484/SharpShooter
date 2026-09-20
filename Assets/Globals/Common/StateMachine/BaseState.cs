@@ -2,14 +2,7 @@ using System;
 using UnityEngine;
 
 
-public interface IState
-{
-    public void Enter();
-    public void Exit();
-    public void Update();
-    public void FixedUpdate();
-}
-public abstract class BaseState<TStateType, TContext>: IState
+public abstract class BaseState<TStateType, TContext>
 {
 
     public BaseState(TStateType stateId, TContext context)
