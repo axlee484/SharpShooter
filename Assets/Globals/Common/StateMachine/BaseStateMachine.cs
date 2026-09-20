@@ -23,6 +23,14 @@ where TContext: struct
         currentState = states[initialStateId];
         currentState.Enter();
     }
+    private void Update()
+    {
+        currentState.Update();
+    }
+    private void FixedUpdate()
+    {
+        currentState.FixedUpdate();
+    }
 
     private void OnStateChange(TStateType nextStateId)
     {
