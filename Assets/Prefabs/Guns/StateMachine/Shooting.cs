@@ -10,15 +10,15 @@ namespace GunStates.StateMachine
         {
             fireRateTimer = Context.gun.FireRateTimer;
         }
-        private void MuzzleFlash()
+        private void ApplyVisuals()
         {
             if(Context.gunVisuals == null) return;
             Context.gunVisuals.MuzzleFlash();
-            Context.gun.PlaySound(Context.gun.ShootSound);
+            Context.gunVisuals.PlayAnimation(Context.gunVisuals.RecoilAnimationName);
         }
         private void ShootRayCast()
         {
-            MuzzleFlash();
+            ApplyVisuals();
             var rayCastHit = Physics.Raycast(
                             Camera.main.transform.position,
                             Camera.main.transform.forward,
@@ -43,6 +43,7 @@ namespace GunStates.StateMachine
                 InvokeChangeState(GunStateType.Reloading);
                 return;
             }
+            Context.gun.PlaySound(Context.gun.ShootSound);
             ShootRayCast();
             Context.gun.SetBulletsRemaining(Context.gun.BulletsRemaining - 1);
             Context.gun.SetCanShoot(false);
