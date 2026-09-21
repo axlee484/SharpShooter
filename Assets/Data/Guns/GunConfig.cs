@@ -24,4 +24,6 @@ public class GunConfig : ScriptableObject
     public int MagazineSize => magazineSize;
     [SerializeField] private float range = 10f;
     public float Range => range;
+    [SerializeField] private bool isAutomatic = true;
+    public bool IsAutomatic => isAutomatic;
 }

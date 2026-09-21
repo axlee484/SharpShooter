@@ -16,6 +16,7 @@ public class BaseEnemy : MonoBehaviour
     }
     private void Start()
     {
+        if(targetTransform == null) return;
         SetDestination(targetTransform.position);
     }
 }

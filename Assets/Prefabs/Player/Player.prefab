@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5420857361349278248, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: cursorLocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: Player
@@ -79,6 +83,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 647620171363725156}
+    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4804611699685748566}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!4 &3670016020179916338 stripped
 Transform:
@@ -119,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d05c466ba9c46c3ea09638fc910add8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  playerGun: {fileID: 6132015241077568466}
 --- !u!114 &1439421488433993041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
+--- !u!114 &4804611699685748566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8942071976477126510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959499fa86fe633e985cd8307ab5f291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HurtBox
 --- !u!1001 &7342965637369581556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,6 +227,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2456493192564830295, guid: a0f19b65a3b43d343a0b9d3f98daf143, type: 3}
   m_PrefabInstance: {fileID: 7342965637369581556}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6132015241077568466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3530328465069177894, guid: a0f19b65a3b43d343a0b9d3f98daf143, type: 3}
+  m_PrefabInstance: {fileID: 7342965637369581556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f560e3a1a8991516a77d1fbd01437e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseGun
 --- !u!1001 &8187823348316290226
 PrefabInstance:
   m_ObjectHideFlags: 0

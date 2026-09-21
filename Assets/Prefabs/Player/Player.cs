@@ -1,16 +1,32 @@
+using StarterAssets;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IShooter
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private StarterAssetsInputs input;
+    [SerializeField] private BaseGun gun;
+    private void Awake()
     {
-        
+        input = GetComponent<StarterAssetsInputs>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HandleTriggerPress()
     {
-        
+        if(gun == null) return;
+        gun.SetTrigger(input.Shoot);
+    }
+
+    public void HandleReloadPress()
+    {
+        if(gun == null) return;
+        gun.SetReload(input.Reload);
+    }
+    public void OnShoot()
+    {
+        HandleTriggerPress();
+    }
+    public void OnReload()
+    {
+        HandleReloadPress();
     }
 }
