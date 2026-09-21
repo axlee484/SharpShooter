@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d05c466ba9c46c3ea09638fc910add8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  playerGun: {fileID: 6132015241077568466}
+  gun: {fileID: 6132015241077568466}
 --- !u!114 &1439421488433993041
 MonoBehaviour:
   m_ObjectHideFlags: 0

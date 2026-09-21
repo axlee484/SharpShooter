@@ -16,6 +16,7 @@ namespace GunStates.StateMachine
             }
             Context.gun.ReloadTimeTimer.TimerFinishedEvent += OnTimerFinished;
             Context.gun.ReloadTimeTimer.StartTimer();
+            Context.gun.PlaySound(Context.gun.ReloadSound);
         }
         private void OnTimerFinished()
         {

@@ -10,9 +10,15 @@ namespace GunStates.StateMachine
         {
             fireRateTimer = Context.gun.FireRateTimer;
         }
-
+        private void MuzzleFlash()
+        {
+            if(Context.gunVisuals == null) return;
+            Context.gunVisuals.MuzzleFlash();
+            Context.gun.PlaySound(Context.gun.ShootSound);
+        }
         private void ShootRayCast()
         {
+            MuzzleFlash();
             var rayCastHit = Physics.Raycast(
                             Camera.main.transform.position,
                             Camera.main.transform.forward,
@@ -25,6 +31,7 @@ namespace GunStates.StateMachine
                 if(hurtBox != null)
                 {
                     hurtBox.InvokeTakeHit(Context.gun.gunConfig.Damage);
+                    Context.gun.PlaySound(Context.gun.HitSound);
                 }
                 Debug.Log("Shot at: " + hit.collider.gameObject.name);
             }

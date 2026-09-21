@@ -13,9 +13,11 @@ namespace  GunStates.StateMachine
     public readonly struct GunContext
     {
         public readonly BaseGun gun;
-        public GunContext(BaseGun gun)
+        public readonly BaseGunVisuals gunVisuals;
+        public GunContext(BaseGun gun, BaseGunVisuals gunVisuals = null)
         {
             this.gun = gun;
+            this.gunVisuals = gunVisuals;
         }
     }
     public class GunStateMachine: BaseStatemachine<GunStateType, GunContext>
@@ -23,7 +25,8 @@ namespace  GunStates.StateMachine
         protected override Dictionary<GunStateType, BaseState<GunStateType, GunContext>> Init()
         {
             var gun = GetComponent<BaseGun>();
-            var gunContext = new GunContext(gun);
+            var gunVisuals = GetComponent<BaseGunVisuals>();
+            var gunContext = new GunContext(gun, gunVisuals);
             var states = new Dictionary<GunStateType, BaseState<GunStateType, GunContext>>();
 
             var idleState = new Idle(GunStateType.Idle, gunContext);

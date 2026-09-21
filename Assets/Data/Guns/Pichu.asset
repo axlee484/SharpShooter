@@ -15,7 +15,8 @@ MonoBehaviour:
   damage: 5
   gunType: 2
   recoil: 1
-  fireRate: 2
+  fireRate: 0.1
   reloadTime: 2
   magazineSize: 10
   range: 200
+  isAutomatic: 1
