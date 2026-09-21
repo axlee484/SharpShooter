@@ -21,6 +21,11 @@ namespace GunStates.StateMachine
                             );
             if (rayCastHit)
             {
+                var hurtBox = hit.collider.GetComponentInParent<HurtBox>();
+                if(hurtBox != null)
+                {
+                    hurtBox.InvokeTakeHit(Context.gun.gunConfig.Damage);
+                }
                 Debug.Log("Shot at: " + hit.collider.gameObject.name);
             }
         }
